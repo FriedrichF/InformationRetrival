@@ -1,0 +1,1 @@
+* switch to Java 8 and some newer Servlet implementations

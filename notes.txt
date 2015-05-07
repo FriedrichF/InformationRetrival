@@ -1,0 +1,5 @@
+- wenn beim Importieren den Projekts die Fehlermeldung "
+IClasspathEntry must be absolute" angezeigt wird, 
+dann muss im Root des Workspaces die Datei 
+".metedata/.plugins/org.eclipse.jst.j2ee.web/webLibrariesCache.index" 
+gelöscht und Eclipse neu gestartet werden.

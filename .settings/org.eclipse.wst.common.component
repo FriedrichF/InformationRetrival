@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="IR_2015_SS_Praxis">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/1"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/1loesung"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/2"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/2loesung"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/3"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/3loesung"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/4"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/4loesung"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/5"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test"/>
+        <wb-resource deploy-path="/resources" source-path="/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+        <property name="context-root" value="IR"/>
+        <property name="java-output-path" value="/IR_2015_SS_Praxis/build/classes"/>
+    </wb-module>
+</project-modules>
