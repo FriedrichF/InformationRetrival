@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -20,8 +21,14 @@ public class DocumentImpl implements IDocument {
 
 	@Override
 	public Iterator<String> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> termeEinzeln = new ArrayList<String>();
+		
+		for (String term : terme) {
+			if(!termeEinzeln.contains(term))
+				termeEinzeln.add(term);
+		}
+		
+		return termeEinzeln.iterator();
 	}
 
 	@Override
@@ -38,21 +45,30 @@ public class DocumentImpl implements IDocument {
 	}
 
 	@Override
-	public int getTermCount(String term) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getTermCount(String suchTerm) {
+		int counter = 0;
+		for (String term : terme) {
+			if(term == suchTerm)
+				counter++;
+		}
+		
+		return counter;
 	}
 
 	@Override
-	public Vector<Integer> getTermPositions(String term) {
-		// TODO Auto-generated method stub
-		return null;
+	public Vector<Integer> getTermPositions(String suchTerm) {
+		Vector<Integer> positions = new Vector<Integer>();
+		for (int i = 0; i <= terme.size(); i++) {
+			if(terme.get(i) == suchTerm)
+				positions.add(i);
+		}
+		
+		return positions;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return terme.size();
 	}
 
 }
