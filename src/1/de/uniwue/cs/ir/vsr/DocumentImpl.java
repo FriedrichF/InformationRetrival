@@ -41,14 +41,17 @@ public class DocumentImpl implements IDocument {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 		String temp = reader.readLine();
 		reader.close();
-		terme = Arrays.asList(temp.split(" "));
+		
+		String[] termArray = temp.split(" ");
+		
+		terme = Arrays.asList(termArray);
 	}
 
 	@Override
 	public int getTermCount(String suchTerm) {
 		int counter = 0;
 		for (String term : terme) {
-			if(term == suchTerm)
+			if(term.equals(suchTerm))
 				counter++;
 		}
 		
@@ -59,7 +62,7 @@ public class DocumentImpl implements IDocument {
 	public Vector<Integer> getTermPositions(String suchTerm) {
 		Vector<Integer> positions = new Vector<Integer>();
 		for (int i = 0; i <= terme.size(); i++) {
-			if(terme.get(i) == suchTerm)
+			if(terme.get(i).equals(suchTerm))
 				positions.add(i);
 		}
 		
@@ -67,7 +70,17 @@ public class DocumentImpl implements IDocument {
 	}
 	
 	@Override public String toString(){
-		return null;
+		String ausgabe = "<pre>/n[ ";
+		boolean first = true;
+		for (String term : terme) {
+			if(!first)
+				ausgabe += ", ";
+			ausgabe += term+" -> "+ getTermCount(term);
+		}
+		
+		ausgabe += " ]\n</pre>";
+		
+		return ausgabe;
 	}
 
 	@Override

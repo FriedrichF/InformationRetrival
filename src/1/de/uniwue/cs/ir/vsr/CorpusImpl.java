@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class CorpusImpl implements ICorpus {
 	
-	private List<IDocument> dokumente;
+	private List<IDocument> dokumente = new ArrayList<IDocument>();
 
 	@Override
 	public void addDocument(IDocument doc) {
@@ -30,15 +30,19 @@ public class CorpusImpl implements ICorpus {
 	public Collection<IDocument> getDocumentsContainingAll(String... terms) {
 		
 		List<IDocument> docContainingAll = new ArrayList<IDocument>();
+		boolean allTermsIn = false;
 		
 		for (IDocument dokument : dokumente) {
 			for (String term : terms) {
 				if(dokument.getTermCount(term)!=0)
-					docContainingAll.add(dokument);
-				else
+					allTermsIn = true;
+				else{
+					allTermsIn = false;
 					break;
+				}
 			}
-			
+			if(allTermsIn)
+				docContainingAll.add(dokument);
 		}
 		return docContainingAll;
 	}
