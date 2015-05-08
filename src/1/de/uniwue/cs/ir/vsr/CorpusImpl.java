@@ -3,8 +3,10 @@
  */
 package de.uniwue.cs.ir.vsr;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Friedrich
@@ -12,35 +14,54 @@ import java.util.Iterator;
  */
 public class CorpusImpl implements ICorpus {
 	
-	private IDocument doc;
+	private List<IDocument> dokumente;
 
 	@Override
 	public void addDocument(IDocument doc) {
-		this.doc = doc;
+		dokumente.add(doc);
 	}
 
 	@Override
 	public Iterator<IDocument> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return dokumente.iterator();
 	}
 
 	@Override
 	public Collection<IDocument> getDocumentsContainingAll(String... terms) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<IDocument> docContainingAll = new ArrayList<IDocument>();
+		
+		for (IDocument dokument : dokumente) {
+			for (String term : terms) {
+				if(dokument.getTermCount(term)!=0)
+					docContainingAll.add(dokument);
+				else
+					break;
+			}
+			
+		}
+		return docContainingAll;
 	}
 
 	@Override
 	public Collection<IDocument> getDocumentsContainingAny(String... terms) {
-		// TODO Auto-generated method stub
-		return null;
+		List<IDocument> docContainingAll = new ArrayList<IDocument>();
+		
+		for (IDocument dokument : dokumente) {
+			for (String term : terms) {
+				if(dokument.getTermCount(term)!=0){
+					docContainingAll.add(dokument);
+					break;
+				}
+			}
+			
+		}
+		return docContainingAll;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return dokumente.size();
 	}
 
 }

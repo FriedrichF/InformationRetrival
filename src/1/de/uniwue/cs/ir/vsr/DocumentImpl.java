@@ -65,6 +65,10 @@ public class DocumentImpl implements IDocument {
 		
 		return positions;
 	}
+	
+	@Override public String toString(){
+		return null;
+	}
 
 	@Override
 	public int size() {
